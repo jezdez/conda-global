@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Coming from pixi global &#8212; conda-global</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/style.css?v=e70ed768" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="icon" sizes="16x16" type="image/ico" href="../../_static/favicon.ico?v=92f50989" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=c6ca509f" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/zulip-icon.js?v=26c491f9"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/coming-from/pixi-global';</script>
+    <link rel="canonical" href="https://jezdez.github.io/conda-global/tutorials/coming-from/pixi-global.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Managing tools" href="../../guides/managing-tools.html" />
+    <link rel="prev" title="Coming from Homebrew" href="homebrew.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/conda_logo_full.svg" class="logo__image only-light" alt="conda-global - Home"/>
+    <script>document.write(`<img src="../../_static/conda_logo_full.svg" class="logo__image only-dark" alt="conda-global - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><ul id="navbar-main-elements" class="navbar-nav">
+    <li class="nav-item ">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda/">conda</a>
+    </li>
+    <li class="nav-item ">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda-build">conda-build</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://conda.org">conda.org</a>
+    </li>
+</ul></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/jezdez/conda-global" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/conda-global/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><ul id="navbar-main-elements" class="navbar-nav">
+    <li class="nav-item ">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda/">conda</a>
+    </li>
+    <li class="nav-item ">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda-build">conda-build</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://conda.org">conda.org</a>
+    </li>
+</ul></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/jezdez/conda-global" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/conda-global/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../first-tool.html">Your first tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../run-without-installing.html">Run tools without installing</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Coming from…</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pipx.html">Coming from pipx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="homebrew.html">Coming from Homebrew</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Coming from pixi global</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How-to guides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../guides/managing-tools.html">Managing tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/sharing-manifests.html">Sharing manifests across machines</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../reference/cli.html">CLI reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Explanation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../motivation.html">Motivation</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Tutorials</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Coming from…</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Coming from...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="coming-from-pixi-global">
+<h1>Coming from pixi global<a class="headerlink" href="#coming-from-pixi-global" title="Link to this heading">#</a></h1>
+<p>If you use <a class="reference external" href="https://pixi.sh/"><code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">global</span></code></a>, this guide maps each
+pixi command to its conda-global equivalent.</p>
+<section id="command-mapping">
+<h2>Command mapping<a class="headerlink" href="#command-mapping" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>pixi global</p></th>
+<th class="head"><p>conda-global</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">global</span> <span class="pre">install</span> <span class="pre">&lt;pkg&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span> <span class="pre">install</span> <span class="pre">&lt;pkg&gt;</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">global</span> <span class="pre">remove</span> <span class="pre">&lt;pkg&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span> <span class="pre">uninstall</span> <span class="pre">-e</span> <span class="pre">&lt;pkg&gt;</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">global</span> <span class="pre">update</span> <span class="pre">&lt;pkg&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span> <span class="pre">update</span> <span class="pre">-e</span> <span class="pre">&lt;pkg&gt;</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">global</span> <span class="pre">update-all</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span> <span class="pre">update</span></code></p></td>
+<td><p>Skips pinned tools</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">global</span> <span class="pre">list</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span> <span class="pre">list</span></code></p></td>
+<td><p>Also supports <code class="docutils literal notranslate"><span class="pre">--json</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">global</span> <span class="pre">expose</span> <span class="pre">add</span> <span class="pre">&lt;mapping&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span> <span class="pre">expose</span> <span class="pre">&lt;mapping&gt;</span> <span class="pre">-e</span> <span class="pre">&lt;env&gt;</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">global</span> <span class="pre">expose</span> <span class="pre">remove</span> <span class="pre">&lt;name&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span> <span class="pre">hide</span> <span class="pre">&lt;name&gt;</span> <span class="pre">-e</span> <span class="pre">&lt;env&gt;</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">global</span> <span class="pre">sync</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span> <span class="pre">sync</span></code></p></td>
+<td><p>Same concept</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">global</span> <span class="pre">edit</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span> <span class="pre">edit</span></code></p></td>
+<td><p>Opens the manifest in <code class="docutils literal notranslate"><span class="pre">$EDITOR</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>—</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span> <span class="pre">run</span> <span class="pre">&lt;pkg&gt;</span></code></p></td>
+<td><p>Ephemeral run without permanent install</p></td>
+</tr>
+<tr class="row-even"><td><p>—</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span> <span class="pre">add</span> <span class="pre">&lt;dep&gt;</span> <span class="pre">-e</span> <span class="pre">&lt;env&gt;</span></code></p></td>
+<td><p>Add a dependency to an existing env</p></td>
+</tr>
+<tr class="row-odd"><td><p>—</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span> <span class="pre">remove</span> <span class="pre">&lt;dep&gt;</span> <span class="pre">-e</span> <span class="pre">&lt;env&gt;</span></code></p></td>
+<td><p>Remove a dependency</p></td>
+</tr>
+<tr class="row-even"><td><p>—</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span> <span class="pre">pin</span> <span class="pre">-e</span> <span class="pre">&lt;env&gt;</span></code></p></td>
+<td><p>Prevent upgrades</p></td>
+</tr>
+<tr class="row-odd"><td><p>—</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span> <span class="pre">tree</span> <span class="pre">-e</span> <span class="pre">&lt;env&gt;</span></code></p></td>
+<td><p>Show dependency tree</p></td>
+</tr>
+<tr class="row-even"><td><p>—</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span> <span class="pre">ensurepath</span></code></p></td>
+<td><p>Add bin dir to PATH</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="key-differences">
+<h2>Key differences<a class="headerlink" href="#key-differences" title="Link to this heading">#</a></h2>
+<dl class="simple myst">
+<dt>Solver</dt><dd><p>pixi uses the rattler solver. conda-global uses conda’s solver
+infrastructure (and respects solver plugins like
+conda-rattler-solver). Both solve against the same conda channels.</p>
+</dd>
+<dt>Integration</dt><dd><p>pixi is a standalone tool. conda-global is a conda plugin — it runs
+as <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">global</span></code>, sharing conda’s configuration, channels, and
+authentication.</p>
+</dd>
+<dt>Manifest location</dt><dd><p>pixi global stores its manifest at
+<code class="docutils literal notranslate"><span class="pre">~/.pixi/manifests/pixi-global.toml</span></code>. conda-global uses
+<code class="docutils literal notranslate"><span class="pre">~/.conda/global.toml</span></code>. The formats are different.</p>
+</dd>
+<dt>Launcher</dt><dd><p>Both use compiled trampoline binaries for zero-overhead execution.
+conda-global uses Rust trampolines with hardlinks, similar to
+pixi’s approach.</p>
+</dd>
+<dt>Extra commands</dt><dd><p>conda-global adds <code class="docutils literal notranslate"><span class="pre">run</span></code> (ephemeral execution), <code class="docutils literal notranslate"><span class="pre">pin</span></code>/<code class="docutils literal notranslate"><span class="pre">unpin</span></code>,
+<code class="docutils literal notranslate"><span class="pre">tree</span></code>, and <code class="docutils literal notranslate"><span class="pre">ensurepath</span></code> which pixi global does not have.</p>
+</dd>
+<dt>Shorthand</dt><dd><p>conda-global provides a <code class="docutils literal notranslate"><span class="pre">cg</span></code> alias for faster typing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cg<span class="w"> </span>install<span class="w"> </span>ruff<span class="w">    </span><span class="c1"># same as conda global install ruff</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="migration-workflow">
+<h2>Migration workflow<a class="headerlink" href="#migration-workflow" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>List your pixi global tools:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>global<span class="w"> </span>list
+</pre></div>
+</div>
+</li>
+<li><p>Install each one with conda-global:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>global<span class="w"> </span>install<span class="w"> </span>ruff
+conda<span class="w"> </span>global<span class="w"> </span>install<span class="w"> </span>gh
+conda<span class="w"> </span>global<span class="w"> </span>install<span class="w"> </span>bat
+</pre></div>
+</div>
+</li>
+<li><p>Verify they work:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ruff<span class="w"> </span>--version
+gh<span class="w"> </span>--version
+bat<span class="w"> </span>--version
+</pre></div>
+</div>
+</li>
+<li><p>Make sure conda-global’s bin directory is on PATH:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>global<span class="w"> </span>ensurepath
+</pre></div>
+</div>
+</li>
+<li><p>Once satisfied, remove the pixi versions:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>global<span class="w"> </span>remove<span class="w"> </span>ruff
+pixi<span class="w"> </span>global<span class="w"> </span>remove<span class="w"> </span>gh
+pixi<span class="w"> </span>global<span class="w"> </span>remove<span class="w"> </span>bat
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="when-to-keep-pixi-global">
+<h2>When to keep pixi global<a class="headerlink" href="#when-to-keep-pixi-global" title="Link to this heading">#</a></h2>
+<p>pixi global is still useful if:</p>
+<ul class="simple">
+<li><p>You prefer pixi as your primary workflow tool</p></li>
+<li><p>You use pixi’s project-level features (<code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code> workspaces) and
+want one tool for everything</p></li>
+<li><p>You don’t have conda installed</p></li>
+</ul>
+<p>conda-global is the better fit when conda is already your package
+manager and you want global tool management integrated into the conda
+CLI.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="homebrew.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Coming from Homebrew</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../guides/managing-tools.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Managing tools</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-mapping">Command mapping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-differences">Key differences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migration-workflow">Migration workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-keep-pixi-global">When to keep pixi global</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/tutorials/coming-from/pixi-global.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, conda community.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
