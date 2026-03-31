@@ -1,0 +1,18 @@
+[package]
+name = "conda-global-trampoline"
+version = "0.1.0"
+edition = "2021"
+license = "BSD-3-Clause"
+description = "Trampoline binary for conda-global: launches tools from isolated conda environments"
+repository = "https://github.com/jezdez/conda-global"
+readme = "../../README.md"
+
+[[bin]]
+name = "trampoline"
+path = "src/main.rs"
+
+[dependencies]
+ctrlc = "3.4"
+fs-err = "3.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
