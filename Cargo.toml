@@ -1,0 +1,11 @@
+[workspace]
+members = ["crates/trampoline"]
+resolver = "2"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+opt-level = "z"
+panic = "abort"
+debug = false
+strip = true
