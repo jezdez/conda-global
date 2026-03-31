@@ -3,10 +3,25 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# C extensions
+*.so
+
 # Distribution / packaging
-dist/
+.Python
 build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
 *.egg-info/
+.installed.cfg
 *.egg
 
 # Rust
@@ -15,6 +30,10 @@ Cargo.lock
 
 # Virtual environments
 .venv/
+venv/
+ENV/
+
+# pixi
 .pixi/
 
 # IDE
@@ -22,15 +41,21 @@ Cargo.lock
 .vscode/
 *.swp
 *.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Docs
+docs/_build/
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Coverage
-.coverage
-htmlcov/
-coverage.xml
-
-# Docs build
-docs/_build/
+# Type checking
+.ty/
+.mypy_cache/
