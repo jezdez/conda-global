@@ -30,3 +30,7 @@ Thumbs.db
 # Coverage
 .coverage
 htmlcov/
+coverage.xml
+
+# Docs build
+docs/_build/
