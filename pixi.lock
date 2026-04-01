@@ -2913,8 +2913,8 @@ packages:
   timestamp: 1772191684896
 - pypi: ./
   name: conda-global
-  version: 0.1.dev25+gc1a7debaa.d20260401
-  sha256: 56edbb354e3b0e6d7dba30853537f3b822c0d4ad983953e283b907f42f513bd8
+  version: 0.1.dev40+g9373ba4e2
+  sha256: 238963d2f8ddbc60453657f3d2f1b3b223b84f02b975525c644b3980360eab41
   requires_dist:
   - conda-trampoline
   - conda>=25.1
