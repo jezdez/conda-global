@@ -1,0 +1,28 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "conda-trampoline"
+version = "0.1.0"
+description = "Trampoline binary for conda — launches tools from isolated conda environments"
+requires-python = ">=3.10"
+license = { text = "BSD-3-Clause" }
+authors = [{ name = "Jannis Leidel", email = "jannis@leidel.info" }]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: BSD License",
+  "Programming Language :: Rust",
+]
+
+[project.urls]
+repository = "https://github.com/jezdez/conda-global"
+
+[tool.maturin]
+bindings = "bin"
+manifest-path = "Cargo.toml"
+module-name = "conda_trampoline"
+python-source = "python"
+strip = true
+locked = true
