@@ -19,6 +19,8 @@ the pixi ecosystem, but for the entire conda package ecosystem.
 
 ## Quick start
 
+![Install ruff, use it, list tools, show dependency tree, and uninstall](demos/quickstart.gif)
+
 ```bash
 # Install a tool
 conda global install gh

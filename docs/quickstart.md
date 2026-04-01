@@ -50,6 +50,8 @@ bin directory to your shell's PATH configuration.
 
 ## Install your first tool
 
+![Quick start demo: install, use, list, tree, uninstall](../demos/quickstart.gif)
+
 ```bash
 $ conda global install gh
   Installing tool gh...

@@ -54,6 +54,10 @@ coverage.xml
 # Docs
 docs/_build/
 
+# Demo recordings (generated from .tape files)
+demos/*.gif
+demos/*.mp4
+
 # OS
 .DS_Store
 Thumbs.db

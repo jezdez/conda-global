@@ -18,6 +18,8 @@ On the target machine, place the file in the data directory and run
 
 ## Sync on the new machine
 
+![Edit the manifest and sync to reconcile](../../demos/sync.gif)
+
 After placing the manifest, run:
 
 ```bash

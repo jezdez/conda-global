@@ -9,6 +9,8 @@ committing, or running a specific version.
 
 ## Basic usage
 
+![Run tools without installing them](../../demos/run.gif)
+
 ```bash
 $ conda global run ruff -- check .
   Running tool ruff...

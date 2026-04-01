@@ -139,3 +139,8 @@ docs = { cmd = "sphinx-build -b dirhtml docs docs/_build/dirhtml", description =
 [tool.pixi.tasks.check]
 depends-on = ["lint", "format-check", "typecheck", "clippy"]
 description = "Run all checks"
+
+[tool.pixi.tasks.demos]
+cmd = """bash -c 'if [ -n "$1" ]; then vhs "demos/$1.tape"; else for tape in demos/*.tape; do [[ "$(basename "$tape")" == _* ]] && continue; vhs "$tape"; done; fi' -- {{ name }}"""
+args = [{ arg = "name", default = "" }]
+description = "Record demo GIFs"

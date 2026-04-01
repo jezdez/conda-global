@@ -20,6 +20,8 @@ conda global update -e ruff
 
 ## Pin and unpin
 
+![Pin a tool, update skips it, then unpin](../../demos/pin-update.gif)
+
 Pin a tool to prevent `conda global update` from changing it:
 
 ```bash
@@ -51,6 +53,8 @@ Both operations re-solve the environment to ensure consistency.
 
 ## Expose and hide binaries
 
+![Expose an alias, use it, then hide it](../../demos/expose-hide.gif)
+
 Expose an additional binary from a tool environment:
 
 ```bash
@@ -78,6 +82,8 @@ The environment is created, the command runs, and the environment is
 removed — nothing persists.
 
 ## Inspect a tool
+
+![View the dependency tree, add a package, see it grow](../../demos/tree.gif)
 
 View the full dependency tree:
 

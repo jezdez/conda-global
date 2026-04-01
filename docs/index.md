@@ -41,6 +41,8 @@ conda global ensurepath
 
 ## Quick example
 
+![Install ruff, use it, list tools, and show dependency tree](../demos/quickstart.gif)
+
 ```bash
 $ conda global install ruff
   Installing tool ruff...
