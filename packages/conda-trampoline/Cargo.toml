@@ -5,7 +5,7 @@ edition = "2021"
 license = "BSD-3-Clause"
 description = "Trampoline binary for conda: launches tools from isolated conda environments"
 repository = "https://github.com/conda-incubator/conda-global"
-readme = "../../README.md"
+readme = "README.md"
 
 [[bin]]
 name = "_cg_trampoline"

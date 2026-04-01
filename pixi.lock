@@ -2982,7 +2982,7 @@ packages:
 - pypi: ./packages/conda-trampoline
   name: conda-trampoline
   version: 0.1.1
-  sha256: 7a9f3df5ae2002990511bee1bc7615498aff8a6b360708ceb0aaca524fbf67d8
+  sha256: dfba9954014af6e6da221d955a290e1bd76a4eafb1780f6d9b6b7054c92b9188
   requires_python: '>=3.10'
 - conda: https://conda.anaconda.org/conda-forge/linux-64/coverage-7.13.5-py314h67df5f8_0.conda
   sha256: cf5f98a291c3a5489cb299bae38711d5dc21b88a00df981f3b1528781e18c909

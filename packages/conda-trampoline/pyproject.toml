@@ -7,6 +7,7 @@ name = "conda-trampoline"
 version = "0.1.1"
 description = "Trampoline binary for conda — launches tools from isolated conda environments"
 requires-python = ">=3.10"
+readme = "README.md"
 license = { text = "BSD-3-Clause" }
 authors = [{ name = "Jannis Leidel", email = "jannis@leidel.info" }]
 classifiers = [
@@ -18,6 +19,7 @@ classifiers = [
 
 [project.urls]
 repository = "https://github.com/conda-incubator/conda-global"
+documentation = "https://conda-incubator.github.io/conda-global/"
 
 [tool.maturin]
 bindings = "bin"
