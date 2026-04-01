@@ -54,8 +54,7 @@ coverage.xml
 # Docs
 docs/_build/
 
-# Demo recordings (generated from .tape files)
-demos/*.gif
+# Demo recordings (MP4s are not tracked; GIFs are committed for docs)
 demos/*.mp4
 
 # OS
