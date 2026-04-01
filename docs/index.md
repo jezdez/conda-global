@@ -11,27 +11,18 @@ conda can install.
 
 ## Install
 
-::::{tab-set}
-
-:::{tab-item} conda
 ```bash
 conda install -c conda-forge conda-global
 ```
-:::
-
-:::{tab-item} pixi
-```bash
-pixi global install conda-global
-```
-:::
-
-::::
 
 Then add the global binary directory to your PATH:
 
 ```bash
 conda global ensurepath
 ```
+
+A standalone `cg` alias is also available — `cg install ruff` is
+equivalent to `conda global install ruff`.
 
 ## Quick example
 
