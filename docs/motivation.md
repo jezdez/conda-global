@@ -42,8 +42,8 @@ conda-global brings isolated tool management into conda itself:
 |---|---|---|---|
 | Package source | PyPI | conda channels | conda channels |
 | Isolation | virtualenvs | pixi envs | conda envs |
-| Launcher | Python scripts | shell scripts | Rust trampolines |
-| Startup overhead | ~50ms | ~10ms | <1ms |
+| Launcher | Python scripts | Rust trampolines | Rust trampolines |
+| Startup overhead | interpreter startup | negligible | negligible |
 | Manifest | none | `~/.pixi/manifests/pixi-global.toml` | `global.toml` |
 | CLI integration | standalone | pixi CLI | `conda global` + `cg` alias |
 | Non-Python tools | no | yes | yes |
@@ -52,9 +52,9 @@ conda-global brings isolated tool management into conda itself:
 ## Design choices
 
 Rust trampolines over wrapper scripts
-: Wrapper scripts add measurable startup latency (Python: ~50ms,
-  shell: ~10ms). A compiled trampoline that calls `execvp` adds
-  negligible overhead and replaces the process entirely on Unix.
+: Python wrapper scripts add interpreter startup latency. A compiled
+  trampoline that calls `execvp` adds negligible overhead and replaces
+  the process entirely on Unix.
 
 Hardlinks over copies
 : All trampolines are hardlinks to a single master binary. This
