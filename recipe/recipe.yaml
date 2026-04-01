@@ -85,9 +85,9 @@ outputs:
           - cg --help
 
 about:
-  homepage: https://github.com/jezdez/conda-global
-  repository: https://github.com/jezdez/conda-global
-  documentation: https://jezdez.github.io/conda-global/
+  homepage: https://github.com/conda-incubator/conda-global
+  repository: https://github.com/conda-incubator/conda-global
+  documentation: https://conda-incubator.github.io/conda-global/
   license: BSD-3-Clause
   license_file: LICENSE
   summary: >

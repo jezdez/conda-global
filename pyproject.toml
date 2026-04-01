@@ -30,7 +30,7 @@ dependencies = [
 dynamic = ["version"]
 
 [project.urls]
-repository = "https://github.com/jezdez/conda-global"
+repository = "https://github.com/conda-incubator/conda-global"
 
 [project.scripts]
 cg = "conda_global.__main__:main"

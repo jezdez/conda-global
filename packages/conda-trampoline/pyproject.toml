@@ -17,7 +17,7 @@ classifiers = [
 ]
 
 [project.urls]
-repository = "https://github.com/jezdez/conda-global"
+repository = "https://github.com/conda-incubator/conda-global"
 
 [tool.maturin]
 bindings = "bin"
