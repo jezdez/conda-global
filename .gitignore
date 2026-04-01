@@ -26,7 +26,6 @@ wheels/
 
 # Rust
 target/
-Cargo.lock
 
 # Virtual environments
 .venv/
