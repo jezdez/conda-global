@@ -18,6 +18,15 @@ updates:
         patterns:
           - "*"
 
+  - package-ecosystem: conda
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      conda:
+        patterns:
+          - "*"
+
   - package-ecosystem: pip
     directory: /
     schedule:
