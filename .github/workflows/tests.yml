@@ -39,6 +39,8 @@ jobs:
         with:
           environments: dev
       - uses: Swatinem/rust-cache@c19371144df3bb44fab255c43d04cbc2ab54d1c4 # v2.9.1
+        with:
+          key: clippy-${{ hashFiles('Cargo.lock') }}
       - name: Lint Python
         run: pixi run -e dev lint
       - name: Format check
@@ -58,7 +60,7 @@ jobs:
       - uses: prefix-dev/setup-pixi@1b2de7f3351f171c8b4dfeb558c639cb58ed4ec0 # v0.9.5
       - uses: Swatinem/rust-cache@c19371144df3bb44fab255c43d04cbc2ab54d1c4 # v2.9.1
         with:
-          key: ${{ matrix.os }}
+          key: ${{ matrix.os }}-${{ hashFiles('Cargo.lock') }}
       - name: Build trampoline
         run: pixi run build
 
