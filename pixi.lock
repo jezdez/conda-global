@@ -2913,7 +2913,7 @@ packages:
   timestamp: 1772191684896
 - pypi: ./
   name: conda-global
-  version: 0.1.1.dev5+gac494cfee
+  version: 0.1.1.dev11+gde061010d.d20260401
   sha256: 30f4577ba17d8f18873769d742d3529c763ca7a1604739e314fa0b72413274d4
   requires_dist:
   - conda-trampoline
@@ -2981,8 +2981,8 @@ packages:
   timestamp: 1774279075676
 - pypi: ./packages/conda-trampoline
   name: conda-trampoline
-  version: 0.1.0
-  sha256: 52f1a05c31eeca77653a44c4d0952dce6cbf822d4214ae0d6d7361f589789bc5
+  version: 0.1.1
+  sha256: 7a9f3df5ae2002990511bee1bc7615498aff8a6b360708ceb0aaca524fbf67d8
   requires_python: '>=3.10'
 - conda: https://conda.anaconda.org/conda-forge/linux-64/coverage-7.13.5-py314h67df5f8_0.conda
   sha256: cf5f98a291c3a5489cb299bae38711d5dc21b88a00df981f3b1528781e18c909
