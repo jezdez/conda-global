@@ -2914,7 +2914,7 @@ packages:
 - pypi: ./
   name: conda-global
   version: 0.1.0
-  sha256: 760bd98db4cbfdd5106229093a97d9b7d71244654c81f737410db0a0ce1b5d9b
+  sha256: e5a45d01272f863821393ea1e3dceb25ac52e0c98d02e4817505b00a4b1547f2
   requires_dist:
   - conda>=25.1
   - conda-trampoline

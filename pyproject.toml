@@ -123,8 +123,10 @@ format-check = { cmd = "ruff format --check conda_global tests", description = "
 typecheck = { cmd = "ty check conda_global", description = "Run type checker" }
 test = { cmd = "pytest", description = "Run test suite" }
 test-cov = { cmd = "pytest --cov --cov-report=term-missing --cov-report=html --cov-report=xml", description = "Tests with coverage" }
-docs = { cmd = "sphinx-build -b dirhtml docs docs/_build/dirhtml", description = "Build documentation" }
 clippy = { cmd = "cargo clippy --manifest-path packages/conda-trampoline/Cargo.toml --all-targets -- -D warnings", description = "Rust linter" }
+
+[tool.pixi.feature.docs.tasks]
+docs = { cmd = "sphinx-build -b dirhtml docs docs/_build/dirhtml", description = "Build documentation" }
 
 [tool.pixi.tasks.check]
 depends-on = ["lint", "format-check", "typecheck", "clippy"]
