@@ -2913,13 +2913,13 @@ packages:
   timestamp: 1772191684896
 - pypi: ./
   name: conda-global
-  version: 0.1.0
-  sha256: e5a45d01272f863821393ea1e3dceb25ac52e0c98d02e4817505b00a4b1547f2
+  version: 0.1.dev25+gc1a7debaa.d20260401
+  sha256: 56edbb354e3b0e6d7dba30853537f3b822c0d4ad983953e283b907f42f513bd8
   requires_dist:
-  - conda>=25.1
   - conda-trampoline
-  - tomlkit>=0.13
+  - conda>=25.1
   - rich>=13.0
+  - tomlkit>=0.13
   - userpath>=1.9
   requires_python: '>=3.10'
 - conda: https://conda.anaconda.org/conda-forge/noarch/conda-libmamba-solver-25.11.0-pyhd8ed1ab_1.conda
