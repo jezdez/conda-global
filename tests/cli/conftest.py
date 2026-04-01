@@ -37,6 +37,7 @@ def fake_envs_create(mock_conda_home, monkeypatch):
     ):
         monkeypatch.setattr(f"{mod}.on_win", False)
     monkeypatch.setattr("conda_trampoline._ON_WIN", False)
+    monkeypatch.setattr("conda_global.binaries._is_executable", lambda path: True)
 
     calls: list[dict] = []
     envs_dir = mock_conda_home / "envs"

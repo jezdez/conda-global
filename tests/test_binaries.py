@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import stat
+import sys
 
 import pytest
 
@@ -29,6 +30,7 @@ def test_discover_binaries_empty_prefix(unix_prefix):
     assert result == []
 
 
+@pytest.mark.skipif(sys.platform == "win32", reason="chmod +x is a no-op on Windows")
 def test_discover_binaries_unix(unix_prefix):
     bin_dir = unix_prefix / "bin"
     _make_executable(bin_dir / "gh")

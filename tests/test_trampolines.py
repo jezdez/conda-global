@@ -9,8 +9,9 @@ from conda_trampoline import TrampolineManager
 
 
 @pytest.fixture
-def trampolines(tmp_path):
+def trampolines(tmp_path, monkeypatch):
     """Set up a TrampolineManager with a fake master binary."""
+    monkeypatch.setattr("conda_trampoline._ON_WIN", False)
     bin_dir = tmp_path / "bin"
     mgr = TrampolineManager(bin_dir)
     mgr.bin_dir.mkdir()
