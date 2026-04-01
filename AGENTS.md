@@ -13,9 +13,13 @@
   `cli/main.py` contains parser configuration and dispatch;
   `cli/__init__.py` is a thin re-export shim.
 
-- The Rust trampoline binary lives in `crates/trampoline/`. It is a
-  standalone Cargo crate compiled for each target platform and shipped
-  inside the Python wheel via maturin.
+- The Rust trampoline binary and its Python management API
+  (`conda_trampoline`) live in `packages/conda-trampoline/`. It is published
+  as a separate PyPI/conda package (`conda-trampoline`) via maturin
+  with platform-specific wheels. The Python module has no dependencies
+  beyond the standard library. The main Python package (`conda-global`)
+  depends on it and is built with hatchling. A single multi-output
+  conda recipe in `recipe/` produces both packages.
 
 - Tests mirror the source structure. Tests for
   `conda_global/cli/install.py` live in `tests/cli/test_install.py`.
@@ -87,7 +91,7 @@
   "thing" being acted on (package, binary name, mapping).
 
 - Verb pairs: `install`/`uninstall`, `add`/`remove`, `expose`/`hide`,
-  `pin`/`unpin`, `shortcut`/`unshortcut`.
+  `pin`/`unpin`.
 
 - `remove` modifies an env (removes a dep). `uninstall` removes the
   entire env.

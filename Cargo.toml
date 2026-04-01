@@ -1,5 +1,5 @@
 [workspace]
-members = ["crates/trampoline"]
+members = ["packages/conda-trampoline"]
 resolver = "2"
 
 [profile.release]
