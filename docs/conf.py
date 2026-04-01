@@ -30,7 +30,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/jezdez/conda-global",
+            "url": "https://github.com/conda-incubator/conda-global",
             "icon": "fa-brands fa-square-github",
             "type": "fontawesome",
         },
@@ -44,7 +44,7 @@ html_theme_options = {
 }
 
 html_context = {
-    "github_user": "jezdez",
+    "github_user": "conda-incubator",
     "github_repo": "conda-global",
     "github_version": "main",
     "doc_path": "docs",
@@ -53,6 +53,6 @@ html_context = {
 html_static_path = ["_static"]
 html_css_files = ["css/custom.css"]
 
-html_baseurl = "https://jezdez.github.io/conda-global/"
+html_baseurl = "https://conda-incubator.github.io/conda-global/"
 
 exclude_patterns = ["_build"]

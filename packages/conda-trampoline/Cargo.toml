@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 license = "BSD-3-Clause"
 description = "Trampoline binary for conda: launches tools from isolated conda environments"
-repository = "https://github.com/jezdez/conda-global"
+repository = "https://github.com/conda-incubator/conda-global"
 readme = "../../README.md"
 
 [[bin]]

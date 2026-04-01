@@ -1,11 +1,11 @@
 # conda-global
 
-[![Tests](https://github.com/jezdez/conda-global/actions/workflows/tests.yml/badge.svg)](https://github.com/jezdez/conda-global/actions/workflows/tests.yml)
-[![Docs](https://github.com/jezdez/conda-global/actions/workflows/docs.yml/badge.svg)](https://jezdez.github.io/conda-global/)
-[![Codecov](https://img.shields.io/codecov/c/github/jezdez/conda-global)](https://codecov.io/gh/jezdez/conda-global)
+[![Tests](https://github.com/conda-incubator/conda-global/actions/workflows/tests.yml/badge.svg)](https://github.com/conda-incubator/conda-global/actions/workflows/tests.yml)
+[![Docs](https://github.com/conda-incubator/conda-global/actions/workflows/docs.yml/badge.svg)](https://conda-incubator.github.io/conda-global/)
+[![Codecov](https://img.shields.io/codecov/c/github/conda-incubator/conda-global)](https://codecov.io/gh/conda-incubator/conda-global)
 [![PyPI](https://img.shields.io/pypi/v/conda-global)](https://pypi.org/project/conda-global/)
-[![License](https://img.shields.io/github/license/jezdez/conda-global)](https://github.com/jezdez/conda-global/blob/main/LICENSE)
-[![Python](https://img.shields.io/badge/python-3.10%E2%80%933.14-blue)](https://github.com/jezdez/conda-global)
+[![License](https://img.shields.io/github/license/conda-incubator/conda-global)](https://github.com/conda-incubator/conda-global/blob/main/LICENSE)
+[![Python](https://img.shields.io/badge/python-3.10%E2%80%933.14-blue)](https://github.com/conda-incubator/conda-global)
 
 Global tool installation for conda — install CLI tools into isolated environments
 and make them available on PATH via trampolines.
@@ -46,7 +46,7 @@ package) acts as a launcher — it reads a JSON config, sets up the environment,
 and launches the real binary with zero activation overhead.
 
 All data lives under `~/.cg/` (`%USERPROFILE%\.cg` on Windows).
-See the [docs](https://jezdez.github.io/conda-global/) for details.
+See the [docs](https://conda-incubator.github.io/conda-global/) for details.
 
 ## Installation
 
