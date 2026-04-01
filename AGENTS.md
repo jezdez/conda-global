@@ -110,6 +110,17 @@
 - Errors use `[bold red]Error:[/bold red]` with
   `rich.markup.escape` on user text.
 
+## Lockfile maintenance
+
+- After any change to `pyproject.toml` that affects pixi metadata
+  (dependencies, features, tasks, or workspace settings), always run
+  `pixi lock` and commit the updated `pixi.lock` alongside the
+  `pyproject.toml` change. CI will fail if the lockfile is out of date.
+
+- After any change to `packages/conda-trampoline/Cargo.toml`, run
+  `cargo generate-lockfile --manifest-path packages/conda-trampoline/Cargo.toml`
+  (or `cargo build`) and commit the updated `Cargo.lock`.
+
 ## Documentation
 
 - Docs use Sphinx with `conda-sphinx-theme`, `myst-parser`, and
