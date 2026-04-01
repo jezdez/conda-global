@@ -10,27 +10,9 @@ tool in under a minute.
 
 ## Install conda-global
 
-::::{tab-set}
-
-:::{tab-item} conda
 ```bash
 conda install -c conda-forge conda-global
 ```
-:::
-
-:::{tab-item} pixi
-```bash
-pixi global install conda-global
-```
-:::
-
-:::{tab-item} mamba
-```bash
-mamba install conda-global
-```
-:::
-
-::::
 
 ## Set up your PATH
 

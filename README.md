@@ -54,12 +54,6 @@ See the [docs](https://jezdez.github.io/conda-global/) for details.
 conda install -c conda-forge conda-global
 ```
 
-Or with pixi:
-
-```bash
-pixi global install conda-global
-```
-
 Then add the bin directory to your PATH:
 
 ```bash
