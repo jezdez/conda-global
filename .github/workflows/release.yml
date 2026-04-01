@@ -92,7 +92,7 @@ jobs:
     name: Publish conda-trampoline to PyPI
     runs-on: ubuntu-latest
     needs: [build-trampoline-wheels, build-trampoline-sdist]
-    environment: pypi
+    environment: pypi-trampoline
 
     permissions:
       id-token: write
@@ -112,7 +112,7 @@ jobs:
     name: Publish conda-global to PyPI
     runs-on: ubuntu-latest
     needs: [build-python, publish-trampoline]
-    environment: pypi
+    environment: pypi-global
 
     permissions:
       id-token: write
