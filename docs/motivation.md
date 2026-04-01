@@ -25,14 +25,16 @@ and places wrapper scripts on PATH. It works well, but:
 
 ### pixi global
 
-[pixi global](https://pixi.sh/latest/reference/cli/#global) brings
-the same pattern to the pixi ecosystem. It installs tools from conda
-channels into isolated environments. However:
+[pixi global](https://pixi.sh/latest/reference/cli/#global) is an
+excellent implementation of this pattern for the conda ecosystem.
+It installs tools from conda channels into isolated environments,
+uses compiled Rust trampolines for fast execution, and provides a
+manifest for reproducible setups. It is the direct inspiration for
+conda-global's design.
 
-- Requires pixi as the package manager — you can't use conda's
-  solver, channels configuration, or existing infrastructure
-- Uses its own environment format and manifest location
-- Does not integrate with the conda CLI
+conda-global exists for users who already rely on conda as their
+package manager and want tool management integrated into the conda
+CLI, using conda's solver, channel configuration, and authentication.
 
 ## How conda-global fits in
 
@@ -72,9 +74,12 @@ conda's solver
 
 ## Acknowledgements
 
-conda-global draws inspiration from
-[pipx](https://pipx.pypa.io/),
-[pixi global](https://pixi.sh/), and
-[conda-express](https://github.com/jezdez/conda-express).
-The trampoline design is informed by pixi's implementation with
-adaptations for conda's environment layout.
+conda-global stands on the shoulders of
+[pixi global](https://pixi.sh/), which pioneered isolated tool
+management with compiled trampolines for the conda ecosystem.
+It also draws from [pipx](https://pipx.pypa.io/), which
+established the pattern for Python, and
+[conda-express](https://github.com/jezdez/conda-express), an
+earlier experiment in this space. The trampoline design closely
+follows pixi's proven approach, adapted for conda's environment
+layout.

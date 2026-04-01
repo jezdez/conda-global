@@ -3,10 +3,11 @@
 Install CLI tools into isolated conda environments and make them
 available on PATH via trampolines — no activation needed.
 
-`conda-global` works like [pipx](https://pipx.pypa.io/) for Python tools
-or [pixi global](https://pixi.sh/latest/reference/cli/#global) for the
-pixi ecosystem, but covers the entire conda package ecosystem: Python,
-R, Rust, C/C++, and anything else conda can install.
+`conda-global` brings the same ideas pioneered by
+[pixi global](https://pixi.sh/latest/reference/cli/#global) and
+[pipx](https://pipx.pypa.io/) into the conda CLI. It covers the entire
+conda package ecosystem: Python, R, Rust, C/C++, and anything else
+conda can install.
 
 ## Install
 

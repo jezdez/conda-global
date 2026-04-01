@@ -24,7 +24,7 @@ Map your brew commands and understand the key differences.
 :link: pixi-global
 :link-type: doc
 
-Migrate from pixi's global tool management to conda-global.
+Map pixi global commands to their conda-global equivalents.
 :::
 
 ::::

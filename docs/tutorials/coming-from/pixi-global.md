@@ -1,7 +1,9 @@
 # Coming from pixi global
 
-If you use [`pixi global`](https://pixi.sh/), this guide maps each
-pixi command to its conda-global equivalent.
+[`pixi global`](https://pixi.sh/) is pixi's excellent built-in tool
+manager. If you're already familiar with it, this guide maps each
+command to its conda-global equivalent — the concepts are very similar
+since conda-global's design is directly inspired by pixi.
 
 ## Command mapping
 
@@ -28,12 +30,13 @@ pixi command to its conda-global equivalent.
 Solver
 : pixi uses the rattler solver. conda-global uses conda's solver
   infrastructure (and respects solver plugins like
-  conda-rattler-solver). Both solve against the same conda channels.
+  conda-rattler-solver). Both solve against the same conda channels
+  and produce compatible environments.
 
 Integration
-: pixi is a standalone tool. conda-global is a conda plugin — it runs
-  as `conda global`, sharing conda's configuration, channels, and
-  authentication.
+: pixi is a polished standalone tool with its own CLI and ecosystem.
+  conda-global is a conda plugin — it runs as `conda global`, sharing
+  conda's configuration, channels, and authentication.
 
 Manifest location
 : pixi global stores its manifest at
@@ -96,13 +99,14 @@ Shorthand
 
 ## When to keep pixi global
 
-pixi global is still useful if:
+pixi global is a great choice and there is no need to switch if:
 
-- You prefer pixi as your primary workflow tool
+- You use pixi as your primary workflow tool — pixi global integrates
+  seamlessly with the rest of the pixi experience
 - You use pixi's project-level features (`pixi.toml` workspaces) and
   want one tool for everything
-- You don't have conda installed
+- You don't use conda or prefer pixi's solver and UX
 
-conda-global is the better fit when conda is already your package
-manager and you want global tool management integrated into the conda
-CLI.
+conda-global is designed for users who already use conda as their
+package manager and want tool management integrated into the conda
+CLI, sharing conda's configuration, channels, and solver plugins.
