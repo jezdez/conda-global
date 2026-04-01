@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.1 (2026-04-01)
+
+### Changes
+
+- Move repository to `conda-incubator` organization
+  ([governance#370](https://github.com/conda/governance/issues/370)).
+- Update all project URLs to `conda-incubator/conda-global`.
+- Simplify installation docs: remove pixi/mamba alternatives, mention
+  standalone `cg` alias.
+
 ## 0.1.0 (2026-04-01)
 
 Initial release of conda-global and conda-trampoline.
