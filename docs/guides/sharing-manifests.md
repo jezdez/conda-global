@@ -1,4 +1,4 @@
-# Sharing manifests across machines
+# Sharing manifests
 
 The `global.toml` manifest is a plain text file that describes all
 your globally installed tools. You can share it across machines to
