@@ -38,8 +38,9 @@ conda global uninstall -e gh
 
 ## How it works
 
-Each tool gets its own isolated conda environment. A small Rust "trampoline"
-binary acts as a launcher — it reads a JSON config, sets up the environment,
+Each tool gets its own isolated conda environment. A small Rust trampoline
+binary (provided by the [`conda-trampoline`](https://pypi.org/project/conda-trampoline/)
+package) acts as a launcher — it reads a JSON config, sets up the environment,
 and launches the real binary with zero activation overhead.
 
 All data lives under `~/.cg/` (`%USERPROFILE%\.cg` on Windows).
