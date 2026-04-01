@@ -25,12 +25,6 @@ pixi global install conda-global
 ```
 :::
 
-:::{tab-item} conda-forge + mamba
-```bash
-mamba install conda-global
-```
-:::
-
 ::::
 
 Then add the global binary directory to your PATH:
