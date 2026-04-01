@@ -14,9 +14,9 @@ from conda_global.models import ToolEnv
 @pytest.fixture
 def mock_trampoline(mock_conda_home):
     """Set up a fake master trampoline binary in mock_conda_home."""
-    trampoline_dir = mock_conda_home / "bin" / ".trampoline"
+    trampoline_dir = mock_conda_home / "bin" / "trampoline"
     trampoline_dir.mkdir(parents=True)
-    master = trampoline_dir / "trampoline_bin"
+    master = trampoline_dir / "_cg_trampoline"
     master.write_bytes(b"fake trampoline")
     return mock_conda_home
 
@@ -32,11 +32,11 @@ def fake_envs_create(mock_conda_home, monkeypatch):
     for mod in (
         "conda.base.constants",
         "conda_global.binaries",
-        "conda_global.trampolines",
         "conda_global.models",
         "conda_global.cli.install",
     ):
         monkeypatch.setattr(f"{mod}.on_win", False)
+    monkeypatch.setattr("conda_trampoline._ON_WIN", False)
 
     calls: list[dict] = []
     envs_dir = mock_conda_home / "envs"

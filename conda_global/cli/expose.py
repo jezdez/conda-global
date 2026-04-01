@@ -4,13 +4,14 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from conda_trampoline import TrampolineManager
 from rich.console import Console
 
 from ..binaries import find_binary
 from ..envs import EnvironmentManager
 from ..exceptions import BinaryNotFoundError, ToolNotFoundError
 from ..manifest import Manifest
-from ..trampolines import TrampolineManager
+from ..paths import global_bin_dir
 from . import status
 
 if TYPE_CHECKING:
@@ -34,7 +35,7 @@ def execute_expose(
 
     manifest = Manifest()
     envs = EnvironmentManager()
-    trampolines = TrampolineManager()
+    trampolines = TrampolineManager(global_bin_dir())
 
     tools = manifest.load()
     if env_name not in tools:
@@ -77,7 +78,7 @@ def execute_hide(
     name = args.name
 
     manifest = Manifest()
-    trampolines = TrampolineManager()
+    trampolines = TrampolineManager(global_bin_dir())
 
     tools = manifest.load()
     if env_name not in tools:

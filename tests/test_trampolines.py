@@ -5,8 +5,7 @@ from __future__ import annotations
 import json
 
 import pytest
-
-from conda_global.trampolines import TrampolineManager
+from conda_trampoline import TrampolineManager
 
 
 @pytest.fixture
@@ -15,8 +14,8 @@ def trampolines(tmp_path):
     bin_dir = tmp_path / "bin"
     mgr = TrampolineManager(bin_dir)
     mgr.bin_dir.mkdir()
-    mgr._config_dir.mkdir()
-    mgr._master_path.write_bytes(b"fake trampoline binary")
+    mgr.config_dir.mkdir()
+    mgr.master_path.write_bytes(b"fake trampoline binary")
     return mgr
 
 
@@ -39,7 +38,7 @@ def test_deploy_creates_hardlink_and_config(trampolines, name, env, expected_env
 
     assert (trampolines.bin_dir / name).exists()
 
-    config = json.loads((trampolines._config_dir / f"{name}.json").read_text())
+    config = json.loads((trampolines.config_dir / f"{name}.json").read_text())
     assert config["env"] == expected_env
 
 
@@ -50,12 +49,12 @@ def test_remove(trampolines):
         path_diff="/some/path",
     )
     assert (trampolines.bin_dir / "gh").exists()
-    assert (trampolines._config_dir / "gh.json").exists()
+    assert (trampolines.config_dir / "gh.json").exists()
 
     trampolines.remove("gh")
 
     assert not (trampolines.bin_dir / "gh").exists()
-    assert not (trampolines._config_dir / "gh.json").exists()
+    assert not (trampolines.config_dir / "gh.json").exists()
 
 
 def test_remove_nonexistent(trampolines):
@@ -73,7 +72,7 @@ def test_deploy_multiple(trampolines):
     for name in ("gh", "ruff", "bat"):
         assert (trampolines.bin_dir / name).exists()
 
-    assert len(list(trampolines._config_dir.glob("*.json"))) == 3
+    assert len(list(trampolines.config_dir.glob("*.json"))) == 3
 
 
 def test_deploy_idempotent(trampolines):
@@ -88,5 +87,5 @@ def test_deploy_idempotent(trampolines):
         path_diff="/updated/path",
     )
 
-    config = json.loads((trampolines._config_dir / "gh.json").read_text())
+    config = json.loads((trampolines.config_dir / "gh.json").read_text())
     assert config["path_diff"] == "/updated/path"

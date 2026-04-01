@@ -19,10 +19,10 @@ def tool_with_binary(mock_conda_home, monkeypatch):
     for mod in (
         "conda.base.constants",
         "conda_global.binaries",
-        "conda_global.trampolines",
         "conda_global.models",
     ):
         monkeypatch.setattr(f"{mod}.on_win", False)
+    monkeypatch.setattr("conda_trampoline._ON_WIN", False)
 
     env_dir = mock_conda_home / "envs" / "ruff"
     bin_dir = env_dir / "bin"
@@ -31,9 +31,9 @@ def tool_with_binary(mock_conda_home, monkeypatch):
     binary.write_bytes(b"#!/bin/sh\n")
     binary.chmod(binary.stat().st_mode | stat.S_IXUSR)
 
-    trampoline_dir = mock_conda_home / "bin" / ".trampoline"
+    trampoline_dir = mock_conda_home / "bin" / "trampoline"
     trampoline_dir.mkdir(parents=True)
-    (trampoline_dir / "trampoline_bin").write_bytes(b"fake trampoline")
+    (trampoline_dir / "_cg_trampoline").write_bytes(b"fake trampoline")
 
     Manifest(mock_conda_home / "global.toml").add(ToolEnv(name="ruff", dependencies={"ruff": "*"}))
 

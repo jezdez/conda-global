@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from conda.base.constants import on_win
+from conda_trampoline import TrampolineManager
 from rich.console import Console
 
 from ..binaries import discover_binaries, find_binary
@@ -12,7 +13,7 @@ from ..envs import EnvironmentManager
 from ..exceptions import BinaryNotFoundError, ToolExistsError
 from ..manifest import Manifest
 from ..models import ToolEnv
-from ..trampolines import TrampolineManager
+from ..paths import global_bin_dir
 from . import status
 
 if TYPE_CHECKING:
@@ -33,7 +34,7 @@ def execute_install(
 
     envs = EnvironmentManager()
     manifest = Manifest()
-    trampolines = TrampolineManager()
+    trampolines = TrampolineManager(global_bin_dir())
 
     if envs.exists(env_name) and not force:
         raise ToolExistsError(env_name)

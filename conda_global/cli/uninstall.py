@@ -4,12 +4,13 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from conda_trampoline import TrampolineManager
 from rich.console import Console
 
 from ..envs import EnvironmentManager
 from ..exceptions import ToolNotFoundError
 from ..manifest import Manifest
-from ..trampolines import TrampolineManager
+from ..paths import global_bin_dir
 from . import status
 
 if TYPE_CHECKING:
@@ -40,7 +41,7 @@ def execute_uninstall(
     )
 
     tool = tools[env_name]
-    trampolines = TrampolineManager()
+    trampolines = TrampolineManager(global_bin_dir())
     for exposed_name in tool.exposed:
         trampolines.remove(exposed_name)
 

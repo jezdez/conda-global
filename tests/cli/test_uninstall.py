@@ -18,7 +18,7 @@ def test_uninstall_removes_env_and_manifest(
     rich_console,
     monkeypatch,
 ):
-    monkeypatch.setattr("conda_global.trampolines.on_win", False)
+    monkeypatch.setattr("conda_trampoline._ON_WIN", False)
 
     seeded_manifest("gh", exposed={"gh": "gh"})
 
@@ -51,7 +51,7 @@ def test_uninstall_removes_multiple_trampolines(
     rich_console,
     monkeypatch,
 ):
-    monkeypatch.setattr("conda_global.trampolines.on_win", False)
+    monkeypatch.setattr("conda_trampoline._ON_WIN", False)
 
     seeded_manifest("ruff", exposed={"ruff": "ruff", "ruff-format": "ruff"})
 
