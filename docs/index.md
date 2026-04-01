@@ -67,8 +67,8 @@ overhead.
 ├── bin/
 │   ├── ruff              ← trampoline (hardlink)
 │   ├── gh                ← trampoline (hardlink)
-│   └── .trampoline/
-│       ├── trampoline_bin  ← master binary
+│   └── trampoline/
+│       ├── _cg_trampoline  ← master binary
 │       ├── ruff.json       ← config for ruff
 │       └── gh.json         ← config for gh
 ├── envs/

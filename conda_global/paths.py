@@ -30,12 +30,12 @@ def global_bin_dir() -> Path:
 
 def trampoline_config_dir() -> Path:
     """Return the directory for trampoline configs."""
-    return global_bin_dir() / ".trampoline"
+    return global_bin_dir() / "trampoline"
 
 
 def trampoline_master_path() -> Path:
     """Return the path to the master trampoline binary."""
-    return trampoline_config_dir() / "trampoline_bin"
+    return trampoline_config_dir() / "_cg_trampoline"
 
 
 def manifest_path() -> Path:

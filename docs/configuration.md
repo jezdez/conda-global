@@ -53,10 +53,10 @@ exposed = { "python3.14" = "python3.14", pip = "pip3.14" }
 ```
 ~/.cg/
 ├── bin/                         ← exposed trampolines (on PATH)
-│   ├── ruff                       hardlink → .trampoline/trampoline_bin
-│   ├── gh                         hardlink → .trampoline/trampoline_bin
-│   └── .trampoline/
-│       ├── trampoline_bin         master binary (compiled Rust)
+│   ├── ruff                       hardlink → trampoline/_cg_trampoline
+│   ├── gh                         hardlink → trampoline/_cg_trampoline
+│   └── trampoline/
+│       ├── _cg_trampoline         master binary (compiled Rust)
 │       ├── ruff.json              config for ruff trampoline
 │       └── gh.json                config for gh trampoline
 ├── envs/                        ← isolated tool environments
@@ -77,14 +77,14 @@ platform-appropriate extensions (`.exe`).
 | Path | Purpose |
 |------|---------|
 | `~/.cg/bin/` | Trampoline directory, added to PATH |
-| `~/.cg/bin/.trampoline/` | Master binary and JSON configs |
+| `~/.cg/bin/trampoline/` | Master binary and JSON configs |
 | `~/.cg/envs/` | Tool environments (one prefix per tool) |
 | `~/.cg/global.toml` | Manifest |
 
 ## Trampoline config files
 
 Each exposed binary has a JSON config at
-`~/.cg/bin/.trampoline/<name>.json`:
+`~/.cg/bin/trampoline/<name>.json`:
 
 ```json
 {

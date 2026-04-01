@@ -1,4 +1,4 @@
-//! Trampoline binary for conda-global.
+//! Trampoline binary for conda (conda-trampoline).
 //!
 //! A minimal binary that reads a JSON configuration file, sets up
 //! environment variables, and launches the real tool binary. Each
@@ -16,15 +16,12 @@ use std::env;
 use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 
-const TRAMPOLINE_CONFIGURATION: &str = ".trampoline";
+const TRAMPOLINE_CONFIGURATION: &str = "trampoline";
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize)]
 struct Configuration {
-    /// Path to the original binary.
     exe: PathBuf,
-    /// Paths to prepend to PATH.
     path_diff: String,
-    /// Environment variables to set before launching.
     env: HashMap<String, String>,
 }
 
@@ -58,33 +55,43 @@ fn executable_name(path: &Path) -> String {
         .to_string();
 
     if cfg!(target_family = "windows") {
-        strip_windows_extension(name)
+        strip_known_extension(name, &windows_extensions())
     } else {
-        name
+        strip_known_extension(name, &unix_extensions())
     }
 }
 
-/// Strip Windows binary extensions using PATHEXT.
-fn strip_windows_extension(name: String) -> String {
+fn strip_known_extension(name: String, extensions: &[String]) -> String {
     let lowercase = name.to_lowercase();
-    let extensions: Vec<String> = if let Ok(pathext) = env::var("PATHEXT") {
-        pathext.split(';').map(|s| s.to_lowercase()).collect()
-    } else {
-        vec![
-            ".com", ".exe", ".bat", ".cmd", ".vbs", ".vbe", ".js", ".jse",
-            ".wsf", ".wsh", ".msc", ".cpl",
-        ]
-        .into_iter()
-        .map(String::from)
-        .collect()
-    };
-
     for ext in extensions {
-        if lowercase.ends_with(&ext) {
+        if lowercase.ends_with(ext) {
             return name[..name.len() - ext.len()].to_string();
         }
     }
     name
+}
+
+fn windows_extensions() -> Vec<String> {
+    if let Ok(pathext) = env::var("PATHEXT") {
+        pathext.split(';').map(|s| s.to_lowercase()).collect()
+    } else {
+        [
+            ".com", ".exe", ".bat", ".cmd", ".vbs", ".vbe", ".js", ".jse", ".wsf", ".wsh",
+            ".msc", ".cpl",
+        ]
+        .iter()
+        .map(|s| s.to_string())
+        .collect()
+    }
+}
+
+fn unix_extensions() -> Vec<String> {
+    [
+        ".sh", ".bash", ".zsh", ".csh", ".ksh", ".fish", ".py", ".pl", ".rb", ".lua", ".tcl",
+    ]
+    .iter()
+    .map(|s| s.to_string())
+    .collect()
 }
 
 /// Compute the new PATH by prepending path_diff entries.
@@ -116,17 +123,14 @@ fn launch_tool(config: &Configuration, args: &[String]) -> Result<(), Box<dyn st
         .stdout(Stdio::inherit())
         .stderr(Stdio::inherit());
 
-    // On Unix: replace the trampoline process via execvp
     #[cfg(target_family = "unix")]
     {
         use std::os::unix::process::CommandExt;
-        // Replace this process with the target via execvp
         let err = CommandExt::exec(&mut cmd);
         eprintln!("failed to launch {}: {err}", config.exe.display());
         std::process::exit(1);
     }
 
-    // On Windows: spawn a child and forward exit code
     #[cfg(target_os = "windows")]
     {
         let mut child = cmd
@@ -149,7 +153,6 @@ fn trampoline() -> Result<(), Box<dyn std::error::Error>> {
     // Resolve symlinks (needed on macOS and Windows)
     let current_exe = current_exe.canonicalize().unwrap_or(current_exe);
 
-    // Ignore Ctrl-C in the trampoline — let the child handle it
     ctrlc::set_handler(move || {})
         .map_err(|e| format!("cannot set signal handler: {e}"))?;
 
@@ -161,7 +164,7 @@ fn trampoline() -> Result<(), Box<dyn std::error::Error>> {
 
 fn main() {
     if let Err(err) = trampoline() {
-        eprintln!("conda-global trampoline error: {err}");
+        eprintln!("conda-trampoline error: {err}");
         std::process::exit(1);
     }
 }

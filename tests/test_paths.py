@@ -14,8 +14,8 @@ from conda_global import paths
     [
         (paths.global_envs_dir, "envs"),
         (paths.global_bin_dir, "bin"),
-        (paths.trampoline_config_dir, "bin/.trampoline"),
-        (paths.trampoline_master_path, "bin/.trampoline/trampoline_bin"),
+        (paths.trampoline_config_dir, "bin/trampoline"),
+        (paths.trampoline_master_path, "bin/trampoline/_cg_trampoline"),
         (paths.manifest_path, "global.toml"),
     ],
 )

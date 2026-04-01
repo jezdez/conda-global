@@ -19,9 +19,10 @@ conda list -p "$(conda global info --envs-dir)/ruff"
 ## Rust trampolines
 
 When you install a tool, conda-global deploys a small native binary
-(the trampoline) in the `bin/` directory. This binary:
+(the trampoline, provided by the `conda-trampoline` package) in the
+`bin/` directory. This binary:
 
-1. Reads a JSON config from `bin/.trampoline/<name>.json`
+1. Reads a JSON config from `bin/trampoline/<name>.json`
 2. Sets `PATH` and any custom environment variables
 3. Replaces itself with the real binary via `execvp` (Unix) or
    spawns it as a child process (Windows)
@@ -31,7 +32,7 @@ interpreter startup, no shell activation, no conda environment
 solving at runtime.
 
 All trampolines are hardlinks to a single master binary at
-`bin/.trampoline/trampoline_bin`. This means 100 exposed
+`bin/trampoline/_cg_trampoline`. This means 100 exposed
 tools use the same disk space as one (plus 100 small JSON configs).
 
 ### Trampoline config
