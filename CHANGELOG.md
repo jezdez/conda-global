@@ -9,6 +9,8 @@
 - Update all project URLs to `conda-incubator/conda-global`.
 - Simplify installation docs: remove pixi/mamba alternatives, mention
   standalone `cg` alias.
+- Bump **conda-trampoline** wheel/sdist version to `0.1.1` (it was still
+  `0.1.0` in `Cargo.toml` / `pyproject.toml`, so wheels did not match the tag).
 
 ## 0.1.0 (2026-04-01)
 
