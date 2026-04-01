@@ -157,6 +157,13 @@ Every command and flag.
 Why conda-global exists and how it relates to pipx and pixi.
 ::::::
 
+::::::{grid-item-card} {octicon}`log;1em` Changelog
+:link: changelog
+:link-type: doc
+
+Release history and notable changes.
+::::::
+
 :::::::
 
 ```{toctree}
@@ -189,4 +196,11 @@ configuration
 
 features
 motivation
+```
+
+```{toctree}
+:hidden:
+:caption: Project
+
+changelog
 ```
