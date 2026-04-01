@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling>=1.12.2", "hatch-vcs>=0.2.0"]
 build-backend = "hatchling.build"
 
 [project]
@@ -27,7 +27,7 @@ dependencies = [
   "rich >=13.0",
   "userpath >=1.9",
 ]
-version = "0.1.0"
+dynamic = ["version"]
 
 [project.urls]
 repository = "https://github.com/jezdez/conda-global"
@@ -38,12 +38,19 @@ cg = "conda_global.__main__:main"
 [project.entry-points.conda]
 "conda-global" = "conda_global.plugin"
 
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "conda_global/_version.py"
+
 [tool.hatch.build.targets.wheel]
 packages = ["conda_global"]
 
 [tool.ruff]
 line-length = 99
 target-version = "py310"
+exclude = ["conda_global/_version.py"]
 
 [tool.ruff.lint]
 flake8-type-checking = {exempt-modules = [], strict = true}
@@ -67,6 +74,7 @@ addopts = "-ra -v"
 [tool.coverage.run]
 source = ["conda_global"]
 branch = true
+omit = ["conda_global/_version.py"]
 
 [tool.coverage.report]
 exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:"]
