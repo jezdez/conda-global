@@ -54,8 +54,7 @@ coverage.xml
 # Docs
 docs/_build/
 
-# Demo recordings (MP4s are not tracked; GIFs are committed for docs)
-demos/*.mp4
+# Demo recordings are committed for docs (regenerate with: pixi run demos)
 
 # OS
 .DS_Store
